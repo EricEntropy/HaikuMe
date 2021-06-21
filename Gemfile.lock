@@ -62,6 +62,7 @@ GEM
       zeitwerk (~> 2.3)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    bcrypt (3.1.16)
     bindex (0.8.1)
     bootsnap (1.7.5)
       msgpack (~> 1.0)
@@ -161,6 +162,7 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     sqlite3 (1.4.2)
+    syllabize (0.8.0)
     thor (1.1.0)
     tilt (2.0.10)
     turbolinks (5.2.1)
@@ -193,6 +195,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  bcrypt (~> 3.1.7)
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)
@@ -203,6 +206,7 @@ DEPENDENCIES
   sass-rails (>= 6)
   selenium-webdriver
   sqlite3 (~> 1.4)
+  syllabize
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 4.1.0)
