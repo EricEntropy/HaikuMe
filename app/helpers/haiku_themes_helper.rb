@@ -1,0 +1,2 @@
+module HaikuThemesHelper
+end
