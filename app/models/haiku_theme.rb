@@ -1,0 +1,2 @@
+class HaikuTheme < ApplicationRecord
+end
