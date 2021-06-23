@@ -32,7 +32,7 @@ class HaikusController < ApplicationController
   end 
 
   def haiku_params
-    params.require(:haiku).permit(:title, :content, :theme_ids:[])
+    params.require(:haiku).permit(:title, :content, theme_ids:[])
   end 
 
 end
