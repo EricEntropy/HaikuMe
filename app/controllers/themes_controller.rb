@@ -19,6 +19,7 @@ class ThemesController < ApplicationController
   end
 
   def index
+    @themes = Theme.all
   end
 
   def show

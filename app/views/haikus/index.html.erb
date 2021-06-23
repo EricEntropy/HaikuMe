@@ -1,3 +1,6 @@
+
 <% @haikus.each do |haiku| %>
+    <li>
     <%= link_to haiku.title, haiku_path(haiku) %>
+    </li>
 <% end %>

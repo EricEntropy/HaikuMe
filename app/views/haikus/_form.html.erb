@@ -7,15 +7,14 @@
     <%= f.label :content %>
     <%= f.text_field :content %>
     </p>
-    <p>
-    <%= f.label :theme %>
-    <%= f.text_field :theme %>
-    </p>
-    <!--
     <%= f.collection_check_boxes :theme_ids, Theme.all, :id, :name %>
+    </p>
+    
+    <br>
+    <p>Create a new Theme</p>
+    Theme:
     <%= f.fields_for :themes, haiku.themes.build do |themes_fields| %>
         <%= themes_fields.text_field :name %>
     <% end %>
-    -->
     <%= f.submit %>
 <% end %>

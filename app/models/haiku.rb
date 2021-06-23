@@ -1,7 +1,9 @@
+require 'syllabize'
+
 class Haiku < ApplicationRecord
+    before_validation :true_haiku
     validates :title, presence: true 
     validates :content, presence: true 
-    validates :theme, presence: true 
    # belongs_to :user
     has_many :haiku_themes
     has_many :themes, through: :haiku_themes
@@ -13,5 +15,13 @@ class Haiku < ApplicationRecord
           self.themes << theme
         end
       end
+
+      private 
+
+      def true_haiku
+        if self.content.count_syllables > 17 
+          return false
+        end 
+      end 
 
 end
