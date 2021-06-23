@@ -7,7 +7,12 @@ class ApplicationController < ActionController::Base
     end 
 
     def current_user
-        session[:username]
-    end 
+        User.find_by(id: session[:user_id])
+    end
+    
+    private 
 
+    def logged_in? 
+        session[:user_id]
+    end 
 end
