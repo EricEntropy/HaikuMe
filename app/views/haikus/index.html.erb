@@ -1,2 +1,3 @@
-<h1>Haikus#index</h1>
-<p>Find me in app/views/haikus/index.html.erb</p>
+<% @haikus.each do |haiku| %>
+    <%= link_to haiku.title, haiku_path(haiku) %>
+<% end %>

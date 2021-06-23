@@ -30,7 +30,7 @@ class ThemesController < ApplicationController
     @theme = Theme.find(params[:id])
   end 
 
-  def haiku_params
+  def theme_params
     params.require(:theme).permit(:name)
   end 
 end

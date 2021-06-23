@@ -6,11 +6,19 @@ class HaikusController < ApplicationController
   end
 
   def create
-    @haiku = Haiku.create(haiku_params)
-    redirect_to haiku_path(@recipe)
+    @haiku = Haiku.new(haiku_params)
+    if @haiku.valid?
+      @haiku.save
+      redirect_to haiku_path(@haiku)
+    else
+      render :new
+    end
   end
 
   def edit
+  end
+
+  def show
   end
 
   def update
@@ -22,9 +30,6 @@ class HaikusController < ApplicationController
     @haikus = Haiku.all
   end
 
-  def show
-  end
-
   private 
 
   def set_haiku
@@ -32,7 +37,7 @@ class HaikusController < ApplicationController
   end 
 
   def haiku_params
-    params.require(:haiku).permit(:title, :content, theme_ids:[])
+    params.require(:haiku).permit(:title, :content, :theme)# theme_ids:[], themes_attributes: [:name])
   end 
 
 end
