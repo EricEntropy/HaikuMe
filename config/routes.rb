@@ -1,29 +1,12 @@
 Rails.application.routes.draw do
-  get 'themes/new'
-  get 'themes/create'
-  get 'themes/edit'
-  get 'themes/update'
-  get 'themes/destroy'
-  get 'themes/index'
-  get 'themes/show'
-  get 'haikus/new'
-  get 'haikus/create'
-  get 'haikus/edit'
-  get 'haikus/update'
-  get 'haikus/destroy'
-  get 'haikus/index'
-  get 'haikus/show'
-  get 'users/new'
-  get 'users/create'
-  get 'users/edit'
-  get 'users/update'
-  get 'users/destroy'
-  get 'users/index'
-  get 'users/show'
+  resources :haikus
+  resources :themes
+  resources :users
 
-  root 'application#home'
-  get '/login', to: 'sessions#new'
-  post '/login', to: 'sessions#create'
-  post '/logout', to: 'sessions#destroy'
+
+  # root 'application#home'
+  # get '/login', to: 'sessions#new'
+  # post '/login', to: 'sessions#create'
+  # post '/logout', to: 'sessions#destroy'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

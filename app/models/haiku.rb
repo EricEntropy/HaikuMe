@@ -1,2 +1,3 @@
 class Haiku < ApplicationRecord
+    
 end
