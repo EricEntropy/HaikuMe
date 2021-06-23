@@ -1,11 +1,4 @@
 Rails.application.routes.draw do
-  get 'haiku_themes/new'
-  get 'haiku_themes/create'
-  get 'haiku_themes/edit'
-  get 'haiku_themes/update'
-  get 'haiku_themes/destroy'
-  get 'haiku_themes/index'
-  get 'haiku_themes/show'
   get 'themes/new'
   get 'themes/create'
   get 'themes/edit'
@@ -27,5 +20,10 @@ Rails.application.routes.draw do
   get 'users/destroy'
   get 'users/index'
   get 'users/show'
+
+  root 'application#home'
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  post '/logout' => 'sessions#destroy'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
