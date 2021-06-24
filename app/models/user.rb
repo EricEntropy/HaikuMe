@@ -3,7 +3,7 @@ class User < ApplicationRecord
     validates :username, presence: true
     validates :username, uniqueness: true
 
-   # has_many :haikus
-   # has_many :themes, through :haikus NOT YET
+   has_many :haikus
+   has_many :themes, through: :haikus
 
 end

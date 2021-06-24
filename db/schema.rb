@@ -21,7 +21,9 @@ ActiveRecord::Schema.define(version: 2021_06_21_194715) do
 
   create_table "haikus", force: :cascade do |t|
     t.string "title"
-    t.text "content"
+    t.string "line_1"
+    t.string "line_2"
+    t.string "line_3"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
