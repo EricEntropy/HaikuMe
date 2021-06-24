@@ -1,3 +1,18 @@
+<% if haiku.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(haiku.errors.count, "error") %>
+      prohibited this post from being saved:
+    </h2>
+
+    <ul>
+    <% haiku.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %> 
+
 <%= form_for haiku do |f| %>
     <p>
     <%= f.label :title %>
@@ -7,6 +22,8 @@
     <%= f.label :content %>
     <%= f.text_field :content %>
     </p>
+    <%= f.label :theme %>
+    <br>
     <%= f.collection_check_boxes :theme_ids, Theme.all, :id, :name %>
     </p>
     
@@ -16,5 +33,6 @@
     <%= f.fields_for :themes, haiku.themes.build do |themes_fields| %>
         <%= themes_fields.text_field :name %>
     <% end %>
+    <br>
     <%= f.submit %>
 <% end %>

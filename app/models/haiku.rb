@@ -1,9 +1,10 @@
-require 'syllabize'
-
 class Haiku < ApplicationRecord
-    before_validation :true_haiku
+  # include ActiveModel::Validations
+  # validates_with ContentValidator
+
     validates :title, presence: true 
     validates :content, presence: true 
+    validate :true_haiku
    # belongs_to :user
     has_many :haiku_themes
     has_many :themes, through: :haiku_themes
@@ -16,12 +17,9 @@ class Haiku < ApplicationRecord
         end
       end
 
-      private 
-
-      def true_haiku
-        if self.content.count_syllables > 17 
-          return false
-        end 
+    def true_haiku
+      if content.count_syllables != 17
+          errors.add(:content, "Haikus must be 17 syllables long")
       end 
-
+    end 
 end
