@@ -2,7 +2,7 @@
   <div id="error_explanation">
     <h2>
       <%= pluralize(haiku.errors.count, "error") %>
-      prohibited this post from being saved:
+      prohibited this Haiku from being saved:
     </h2>
 
     <ul>
@@ -15,13 +15,24 @@
 
 <%= form_for haiku do |f| %>
     <p>
-    <%= f.label :title %>
+    <%= f.label :title, "Title: " %>
+    <br>
     <%= f.text_field :title %>
     </p>
+
     <p>
-    <%= f.label :content %>
-    <%= f.text_field :content %>
+    Content:
+    <br>
+    <%= f.label :line_1, "Line 1:" %>
+    <%= f.text_field :line_1 %>
+    <br>
+    <%= f.label :line_2, "Line 2:" %>
+    <%= f.text_field :line_2 %>
+    <br>
+    <%= f.label :line_3, "Line 3:" %>
+    <%= f.text_field :line_3 %>
     </p>
+    
     <%= f.label :theme %>
     <br>
     <%= f.collection_check_boxes :theme_ids, Theme.all, :id, :name %>
