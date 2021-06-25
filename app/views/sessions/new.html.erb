@@ -1,7 +1,13 @@
-h1>Log In</h1>
+<h1>Log In</h1>
 
 <%= form_for :user, url: '/login', method: :POST do |f| %>
-  Name: <%= f.text_field :username %>
-  Password: <%= f.password_field :password %>
-  <%= f.submit "Submit" %>
+  <%= f.label :username, "Username: " %>
+  <%= f.text_field :username %>
+  <br>
+  <br>
+  <%= f.label :password, "Password:  " %>
+  <%= f.password_field :password %>
+  <br>
+  <br>
+  <%= f.submit "Log In" %>
 <% end %>

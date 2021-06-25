@@ -1,3 +1,15 @@
 <br>
 Username: <%= @user.username %>
 <br>
+<%if @user.haikus.empty? %>
+    <%= "#{@user.username} has no Haikus yet" %>
+<%else%> 
+    Your Haikus:
+    <%@user.haikus.each do |haiku|%>
+        <%= haiku.title %>
+        <br>
+        <%= haiku.content%>
+    <%end%>
+    <%end%>
+
+    <br>

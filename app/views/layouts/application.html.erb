@@ -12,5 +12,19 @@
   <body>
   <%= yield %>
   </body>
-  
+  <br>
+  <br>
+  <% if !current_user %>
+    <%= link_to "Sign Up!", "/signup"%>
+    <br>
+    OR 
+    <br>
+    <%= link_to "Log In!", "/login"%>
+  <%else%>
+    <%= link_to "New Haiku!", "/haikus/new"%>
+    <br>
+    <br>
+    <%= link_to "Profile", "/users/#{current_user.id}"%>
+  <%end%>
+
 </html>

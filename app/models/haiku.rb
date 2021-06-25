@@ -1,10 +1,7 @@
 class Haiku < ApplicationRecord
-  # include ActiveModel::Validations
-  # validates_with ContentValidator
-
     validates :title, presence: true 
     validate :true_haiku
-   # belongs_to :user
+    belongs_to :user
     has_many :haiku_themes
     has_many :themes, through: :haiku_themes
     accepts_nested_attributes_for :themes
@@ -24,5 +21,9 @@ class Haiku < ApplicationRecord
       elsif line_3.count_syllables != 5
         errors.add(:line_3, "must be 5 syllables long")
       end 
+    end 
+
+    def content
+      "#{self.line_1}\n + #{self.line_2}\n + #{self.line_3}\n" 
     end 
 end
