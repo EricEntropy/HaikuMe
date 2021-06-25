@@ -11,7 +11,7 @@ class HaikusController < ApplicationController
       @haiku.save 
       redirect_to @haiku
     else 
-      render 'new'
+      render '/haikus/new'
     end 
 
   end
@@ -38,7 +38,7 @@ class HaikusController < ApplicationController
   end 
 
   def haiku_params
-    params.require(:haiku).permit(:title, :line_1, :line_2, :line_3, theme_ids:[], themes_attributes: [:name])
+    params.require(:haiku).permit(:title, :line_1, :line_2, :line_3, :theme_ids => [], themes_attributes: [:name])
   end 
 
 end

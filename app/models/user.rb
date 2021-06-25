@@ -7,6 +7,6 @@ class User < ApplicationRecord
 
 
    has_many :haikus
-   has_many :themes, through: :haikus
+  # has_many :themes, through: :haikus
 
 end

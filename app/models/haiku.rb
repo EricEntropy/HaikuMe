@@ -1,9 +1,11 @@
 class Haiku < ApplicationRecord
-    validates :title, presence: true 
-    validate :true_haiku
     belongs_to :user
     has_many :haiku_themes
     has_many :themes, through: :haiku_themes
+
+    validates :title, presence: true 
+    validate :true_haiku
+    
     accepts_nested_attributes_for :themes
 
     def themes_attributes=(theme_attributes)
