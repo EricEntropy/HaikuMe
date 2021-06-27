@@ -26,6 +26,10 @@ class Haiku < ApplicationRecord
     end 
 
     def content
-      "#{self.line_1}\n + #{self.line_2}\n + #{self.line_3}\n" 
+      content = []
+      content << self.line_1
+      content << self.line_2
+      content << self.line_3
+      return content
     end 
 end

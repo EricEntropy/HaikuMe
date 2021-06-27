@@ -1,17 +1,22 @@
 
-Title: <%= @haiku.title %>
+Title:
+<p>
+<b><%= @haiku.title %></b>
+</p>
+
 <p>
   Content: 
   <br>
-  <%= @haiku.line_1 %>
-  <br>
-  <%= @haiku.line_2 %>
-  <br>
-  <%= @haiku.line_3 %>
-
+  <%@haiku.content.each do |line|%>
+    <p> 
+    <b><%=line%></b>
+    </p>
+<%end%>
   </p>
+
 Themes:
   <%= @haiku.themes.each do |f|%>
-    <%= f.name %>
+    <br>
+    <%= f.name%>
     <%end %>
  

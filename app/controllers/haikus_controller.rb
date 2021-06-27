@@ -1,12 +1,11 @@
 class HaikusController < ApplicationController
   before_action :set_haiku, only: [:show, :edit, :update]
-
   def new
-    @haiku = Haiku.new
+    @haiku = current_user.haikus.build
   end
 
   def create
-    @haiku = Haiku.new(haiku_params)
+    @haiku = current_user.haikus.build(haiku_params)
     if @haiku.valid?
       @haiku.save 
       redirect_to @haiku
@@ -17,6 +16,7 @@ class HaikusController < ApplicationController
   end
 
   def edit
+    
   end
 
   def show
@@ -24,7 +24,7 @@ class HaikusController < ApplicationController
 
   def update
     @haiku.update(haiku_params)
-    redirect_to haiku_path(@haiku)
+    redirect_to @haiku
   end
 
   def index
@@ -33,12 +33,13 @@ class HaikusController < ApplicationController
 
   private 
 
+
   def set_haiku
     @haiku = Haiku.find(params[:id])
   end 
 
   def haiku_params
-    params.require(:haiku).permit(:title, :line_1, :line_2, :line_3, :theme_ids => [], themes_attributes: [:name])
+    params.require(:haiku).permit(:title, :line_1, :line_2, :line_3, :user_id, :theme_ids => [], themes_attributes: [:name])
   end 
 
 end

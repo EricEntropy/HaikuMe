@@ -1,4 +1,5 @@
-<% if haiku.errors.any? %>
+<%= form_for haiku do |f| %>
+  <% if haiku.errors.any? %>
   <div id="error_explanation">
     <h2>
       <%= pluralize(haiku.errors.count, "error") %>
@@ -13,13 +14,10 @@
   </div>
 <% end %> 
 
-<%= form_for haiku do |f| %>
-    <p>
+    <div class="field">
     <%= f.label :title, "Title: " %>
     <br>
     <%= f.text_field :title %>
-    </p>
-
     <p>
     Content:
     <br>
@@ -32,6 +30,8 @@
     <%= f.label :line_3, "Line 3:" %>
     <%= f.text_field :line_3 %>
     </p>
+    </div>
+
 
     <div class="field">
     <%= f.label :theme %>
@@ -48,5 +48,5 @@
     </div>
 
     <br>
-    <%= f.submit "Create Haiku" %>
+    <%= f.submit %>
 <% end %>

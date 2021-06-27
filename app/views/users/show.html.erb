@@ -1,15 +1,24 @@
 <br>
-Username: <%= @user.username %>
+<h1> Hi <%= @user.username.capitalize %>!</h1>
 <br>
 <%if @user.haikus.empty? %>
     <%= "#{@user.username} has no Haikus yet" %>
 <%else%> 
     Your Haikus:
+    <br>
     <%@user.haikus.each do |haiku|%>
-        <%= haiku.title %>
+        <p>
+        <b><%= haiku.title %></b>
+        
         <br>
-        <%= haiku.content%>
+            <%haiku.content.each do |line|%>
+                <p> 
+                <%=line%>
+                </p>
+            <%end%>
+            <%= link_to "Edit", "/haikus/#{haiku.id}/edit"%>
+            </p>
+            <br>
     <%end%>
     <%end%>
-
     <br>
