@@ -1,5 +1,5 @@
 class HaikusController < ApplicationController
-  before_action :set_haiku, only: [:show, :edit, :update]
+  before_action :set_haiku, only: [:show, :edit, :update, :destroy]
   def new
     @haiku = current_user.haikus.build
   end
@@ -30,6 +30,11 @@ class HaikusController < ApplicationController
   def index
     @haikus = Haiku.all
   end
+
+  def destroy
+    @haiku.destroy
+    redirect_to "/users/#{current_user.id}"
+  end 
 
   private 
 

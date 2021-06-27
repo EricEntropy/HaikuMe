@@ -9,7 +9,6 @@
     <%@user.haikus.each do |haiku|%>
         <p>
         <b><%= haiku.title %></b>
-        
         <br>
             <%haiku.content.each do |line|%>
                 <p> 
@@ -17,6 +16,7 @@
                 </p>
             <%end%>
             <%= link_to "Edit", "/haikus/#{haiku.id}/edit"%>
+            <%= button_to "Delete Haiku", haiku_path(haiku), method: :delete %>       
             </p>
             <br>
     <%end%>
