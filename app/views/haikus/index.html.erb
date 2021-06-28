@@ -1,6 +1,18 @@
-
+<center>
 <% @haikus.each do |haiku| %>
-    <li>
-    <%= link_to haiku.title, haiku_path(haiku) %>
-    </li>
+    <p>
+    <b><%= haiku.title.capitalize%></b>
+    <br>
+    By: <%= link_to haiku.user.username.capitalize, user_haikus_path(haiku.user)%>
+    <%haiku.content.each do |line|%>
+        <p> 
+        <%=line%>
+        </p>
+    <%end%>
+    </p>
+    <% if haiku.user == current_user %>
+    <%= link_to "Edit", "/users/#{current_user.id}/haikus/#{haiku.id}/edit"%>
+    <%end%>
+    <hr>
 <% end %>
+</center>

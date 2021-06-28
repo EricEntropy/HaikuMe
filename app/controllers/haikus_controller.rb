@@ -1,5 +1,6 @@
 class HaikusController < ApplicationController
   before_action :set_haiku, only: [:show, :edit, :update, :destroy]
+
   def new
     @haiku = current_user.haikus.build
   end
@@ -20,6 +21,7 @@ class HaikusController < ApplicationController
   end
 
   def show
+
   end
 
   def update
@@ -28,7 +30,11 @@ class HaikusController < ApplicationController
   end
 
   def index
-    @haikus = Haiku.all
+    if params[:user_id]
+      @haikus = User.find(params[:user_id]).haikus
+    else 
+      @haikus = Haiku.all
+    end 
   end
 
   def destroy
@@ -37,7 +43,6 @@ class HaikusController < ApplicationController
   end 
 
   private 
-
 
   def set_haiku
     @haiku = Haiku.find(params[:id])
