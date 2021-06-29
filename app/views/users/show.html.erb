@@ -15,10 +15,15 @@
                 <%=line%>
                 </p>
             <%end%>
+            <%= link_to "View", "/users/#{current_user.id}/haikus/#{haiku.id}"%>
+            <br>
             <%= link_to "Edit", "/users/#{current_user.id}/haikus/#{haiku.id}/edit"%>
+            <br>
+            <br>
             <%= button_to "Delete Haiku", haiku_path(haiku), method: :delete %>
             </p>
             <br>
-    <%end%>
+            <hr>
+        <%end%>
     <%end%>
     <br>

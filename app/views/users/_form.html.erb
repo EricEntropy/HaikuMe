@@ -1,4 +1,7 @@
-<% if user.errors.any? %>
+<h1> Sign Up </h1>
+
+<%= form_for user do |f| %>
+  <% if user.errors.any? %>
   <div id="error_explanation">
     <h2>
       <%= pluralize(user.errors.count, "error") %>
@@ -12,9 +15,7 @@
     </ul>
   </div>
 <% end %> 
-<h1> Sign Up </h1>
 
-<%= form_for user do |f| %>
     <%= f.label :username, "Username: " %>
     <%= f.text_field :username %>
     <br>

@@ -1,11 +1,9 @@
 
-Title:
-<p>
 <b><%= @haiku.title %></b>
-</p>
-
+<br>
+By: <%= link_to @haiku.user.username.capitalize, user_haikus_path(@haiku.user)%>
 <p>
-  Content: 
+  Haiku: 
   <br>
   <%@haiku.content.each do |line|%>
     <p> 
@@ -17,6 +15,6 @@ Title:
 Themes:
   <%= @haiku.themes.each do |f|%>
     <br>
-    <%= f.name%>
+    <%= f.name.strip%>
     <%end %>
- 
+ <hr>
