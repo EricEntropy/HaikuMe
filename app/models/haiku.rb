@@ -11,8 +11,10 @@ class Haiku < ApplicationRecord
 
     def themes_attributes=(theme_attributes)
       theme_attributes.values.each do |theme_attribute|
-        theme = Theme.find_or_create_by(theme_attribute)
-        self.themes << theme
+        if !theme_attribute.empty?
+          theme = Theme.find_or_create_by(theme_attribute)
+          self.themes << theme
+        end
       end
     end
 

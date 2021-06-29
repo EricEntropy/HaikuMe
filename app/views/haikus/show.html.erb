@@ -13,8 +13,8 @@ By: <%= link_to @haiku.user.username.capitalize, user_haikus_path(@haiku.user)%>
   </p>
 
 Themes:
+<br>
   <%= @haiku.themes.each do |f|%>
-    <br>
-    <%= f.name.strip%>
+    <%= f.name%>
+    <br>    
     <%end %>
- <hr>
