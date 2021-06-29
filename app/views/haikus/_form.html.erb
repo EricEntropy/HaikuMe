@@ -51,4 +51,4 @@
     <%= f.submit %>
 <% end %>
 Or 
-<%= button_to "Delete Haiku", haiku_path(haiku), method: :delete %>
+<%= button_to "Delete Haiku", user_haikus_path(haiku.user), method: :delete %>

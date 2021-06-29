@@ -1,7 +1,2 @@
 <h1>Hi there!</h1>
 <h3> Ready to make a Haiku? </h3>
-<% if current_user %>
-    <%= form_for :session, url: '/logout', method: :GET do |f| %>
-        <%= f.submit "Logout" %>
-    <% end %>
-<% end %>

@@ -15,7 +15,7 @@
                 <%=line%>
                 </p>
             <%end%>
-            <%= link_to "Edit", "/haikus/#{haiku.id}/edit"%>
+            <%= link_to "Edit", "/users/#{current_user.id}/haikus/#{haiku.id}/edit"%>
             <%= button_to "Delete Haiku", haiku_path(haiku), method: :delete %>
             </p>
             <br>
