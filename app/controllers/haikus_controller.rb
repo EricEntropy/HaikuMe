@@ -9,9 +9,9 @@ class HaikusController < ApplicationController
     @haiku = current_user.haikus.build(haiku_params)
     if @haiku.valid?
       @haiku.save 
-      redirect_to @haiku
+      redirect_to "/users/#{current_user.id}/haikus/#{@haiku.id}"
     else 
-      render '/haikus/new'
+      render "new"
     end 
 
   end
@@ -48,7 +48,7 @@ class HaikusController < ApplicationController
   end 
 
   def haiku_params
-    params.require(:haiku).permit(:title, :line_1, :line_2, :line_3, :user_id, :theme_ids => [], themes_attributes: [:name])
+    params.require(:haiku).permit(:title, :line_1, :line_2, :line_3, :user_id, theme_ids:[], themes_attributes:[:name])
   end 
 
 end

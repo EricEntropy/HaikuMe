@@ -35,13 +35,14 @@
 
     <div class="field">
     <%= f.label :theme %>
+    <br>
     <%= f.collection_check_boxes :theme_ids, Theme.all, :id, :name %>
     </div>
 
-    
+    <br>
     <div class="field">
-    <p>Create a new Theme</p>
-    Theme:
+    Create a new Theme
+    <br>
     <%= f.fields_for :themes, haiku.themes.build do |themes_fields| %>
         <%= themes_fields.text_field :name %>
     <% end %>
