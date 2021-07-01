@@ -13,7 +13,6 @@
         <% if haiku.user == current_user %>
         <%= link_to "Edit", "/users/#{current_user.id}/haikus/#{haiku.id}/edit"%>
         <%end%>
-        <hr>
     <% end %>
 <%else%> 
 No Haikus, yet...

@@ -15,6 +15,9 @@ By: <%= link_to @haiku.user.username.capitalize, user_haikus_path(@haiku.user)%>
 Themes:
 <br>
   <%= @haiku.themes.each do |f|%>
+    <%if !f.name.empty?%>
     <%= f.name%>
     <br>    
     <%end %>
+    <%end %>
+

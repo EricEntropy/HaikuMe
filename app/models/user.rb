@@ -5,7 +5,6 @@ class User < ApplicationRecord
     validates :username, length: { minimum: 4 }
     validates :password, length: { minimum: 6 }
     validates :password_confirmation, presence: true
-    
     has_many :haikus
     has_many :themes, through: :haikus
 

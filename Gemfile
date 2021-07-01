@@ -24,6 +24,12 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'syllabize'
 gem 'numbers_and_words'
 gem 'pry'
+gem 'omniauth'
+gem 'omniauth-github'
+gem 'figaro'
+gem "omniauth-rails_csrf_protection"
+gem 'dotenv-rails'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

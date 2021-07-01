@@ -20,6 +20,9 @@ class UsersController < ApplicationController
     redirect_to '/' unless logged_in?
   end
 
+  def index
+  end 
+
   private
   
   def user_params
