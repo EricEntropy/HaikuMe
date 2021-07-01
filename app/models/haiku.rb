@@ -7,13 +7,15 @@ class Haiku < ApplicationRecord
     validates :title, uniqueness: true
     validate :true_haiku
     
-    accepts_nested_attributes_for :themes
+    accepts_nested_attributes_for :themes, reject_if: :all_blank
 
     def themes_attributes=(theme_attributes)
       theme_attributes.values.each do |theme_attribute|
         if !theme_attribute.empty?
           theme = Theme.find_or_create_by(theme_attribute)
-          self.themes << theme
+          if !theme.name.empty?
+            self.themes << theme
+          end 
         end
       end
     end
