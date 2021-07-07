@@ -1,24 +1,18 @@
 # README
+Hello! 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Do you like to express yourself in a way that differs from the rest? 
+Do you like your posts on the internet to be complex and deep? 
 
-Things you may want to cover:
+HaikuMe is for you! 
 
-* Ruby version
+With this simple app, you can create haikus and share them with the world. 
 
-* System dependencies
+Haikus are comprised of three lines: 
+1. Must be FIVE syllables long.
+2. Must be SEVEN syllables long.
+3. Must be FIVE syllables long.
 
-* Configuration
+You can also add themes to your haikus to keep track of where the haikus belong to. 
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Happy writing!
