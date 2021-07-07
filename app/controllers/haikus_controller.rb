@@ -24,8 +24,11 @@ class HaikusController < ApplicationController
   end
 
   def update
-    @haiku.update(haiku_params)
-    redirect_to @haiku
+    if @haiku.update(haiku_params)
+      redirect_to "/users/#{current_user.id}/haikus/#{@haiku.id}"
+    else 
+      render "edit"
+    end 
   end
 
   def index
