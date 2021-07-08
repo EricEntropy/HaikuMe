@@ -13,11 +13,14 @@ class SessionsController < ApplicationController
             redirect_to users_path(user)
         else 
             @user = User.find_by(username: params[:user][:username])
-            if @user && @user.authenticate(params[:user][:password])
+            if !@user
+                flash.now[:notice] = "Username or password not found"
+            else 
+                 @user && @user.authenticate(params[:user][:password])
                 session[:user_id] = @user.id
                 redirect_to '/'
-            else 
-                render 'sessions/new'
+            # else 
+            #     render 'sessions/new'
             end 
         end 
     end 
