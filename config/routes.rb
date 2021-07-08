@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :haikus
   resources :themes
   resources :users do 
-    resources :haikus, only: [:new, :show, :edit, :index]
+    resources :haikus, only: [:new, :show, :edit, :index, :update]
   end 
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
-  get "/auth/github/callback", to: "sessions#create"
+  get "/auth/github/callback", to: "sessions#create_through_github"
   match '/auth/:provider/callback', to: 'auth#callback', via: [:get, :post]
 end
