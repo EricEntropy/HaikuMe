@@ -13,14 +13,13 @@ class SessionsController < ApplicationController
             redirect_to users_path(user)
         else 
             @user = User.find_by(username: params[:user][:username])
-            if !@user
-                flash.now[:notice] = "Username or password not found"
+            if @user ==nil
+                flash[:notice] = "Incorrect Username/password"
+                redirect_to login_path
             else 
                  @user && @user.authenticate(params[:user][:password])
                 session[:user_id] = @user.id
                 redirect_to '/'
-            # else 
-            #     render 'sessions/new'
             end 
         end 
     end 

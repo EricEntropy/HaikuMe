@@ -1,5 +1,8 @@
 <h1> Log In </h1>
-
+<% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
+  <br>
 <%= form_for :user do |f| %>
 
     <%= f.label :username, "Username: " %>
