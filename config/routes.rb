@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :haikus
   resources :themes
   resources :users do 
-    resources :haikus, only: [:new, :show, :edit, :index, :update]
+    resources :haikus, only: [:new, :show, :edit, :index, :update, :destroy]
   end 
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'

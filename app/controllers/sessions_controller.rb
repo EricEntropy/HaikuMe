@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
         if @user == nil
             flash[:notice] = "Incorrect Username/Password"
             redirect_to login_path
-        elsif !@user.provider.empty?
+        elsif @user.provider
             flash[:notice] = "Omniauth User Found. Please Use Github"
             redirect_to login_path
         else 

@@ -26,3 +26,16 @@
         <%end%>
     <%end%>
     <br>
+
+    <%if @user.themes.empty? %>
+    <%= "#{@user.username} has no themes yet" %>
+<%else%> 
+    Your Themes:
+    <br>
+    <%@user.themes.uniq.each do |t|%>
+        <p>
+        <b><%= t.name %></b>
+        <br>
+        <%end%>
+        <%end%>
+
