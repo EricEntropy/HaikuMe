@@ -1,5 +1,5 @@
 <% if !@haikus.empty? %> 
-    <% @haikus.sort_alphabetically.each do |haiku| %>
+    <% @haikus.ordered_by_title.each do |haiku| %>
         <p>
         <b><%= haiku.title.capitalize%></b>
         <br>

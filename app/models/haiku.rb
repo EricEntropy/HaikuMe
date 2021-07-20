@@ -8,6 +8,7 @@ class Haiku < ApplicationRecord
     validate :true_haiku
     
     accepts_nested_attributes_for :themes, reject_if: :all_blank
+    scope :ordered_by_title, -> { order(title: :asc) }
 
     def themes_attributes=(theme_attributes)
       theme_attributes.values.each do |theme_attribute|
@@ -42,7 +43,4 @@ class Haiku < ApplicationRecord
       self.group(:user_id).count.max_by{|user,count| count }
     end 
 
-    def self.sort_alphabetically
-      self.order(title: :asc)
-    end 
 end
