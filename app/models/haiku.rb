@@ -37,4 +37,12 @@ class Haiku < ApplicationRecord
       content << self.line_3
       return content
     end 
+
+    def self.user_with_most_haikus
+      self.group(:user_id).count.max_by{|user,count| count }
+    end 
+
+    def self.sort_alphabetically
+      self.order(title: :asc)
+    end 
 end

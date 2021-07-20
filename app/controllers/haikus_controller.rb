@@ -2,7 +2,14 @@ class HaikusController < ApplicationController
   before_action :set_haiku, only: [:show, :edit, :update, :destroy]
 
   def new
-    @haiku = current_user.haikus.build
+    if params[:user_id]
+        user = User.find(params[:user_id])
+        @haiku = user.haikus.build
+    elsif !params[:user_id]
+      @haiku = current_user.haikus.build
+    else  
+      redirect_to '/'
+    end 
   end
 
   def create
@@ -17,14 +24,23 @@ class HaikusController < ApplicationController
   end
 
   def edit
-    
+    if @haiku.user == current_user
+      render "edit"
+    else  
+      redirect_to '/'
+    end
   end
 
   def show
+    if @haiku.user == current_user
+      render "show"
+    else 
+      redirect_to '/'
+    end
   end
 
   def update
-    if @haiku.update(haiku_params)
+    if @haiku.update(haiku_params) && (@haiku.user == current_user)
       redirect_to "/users/#{current_user.id}/haikus/#{@haiku.id}"
     else 
       render "edit"

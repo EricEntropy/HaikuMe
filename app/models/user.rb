@@ -7,5 +7,5 @@ class User < ApplicationRecord
     validates :password_confirmation, presence: true
     has_many :haikus
     has_many :themes, through: :haikus
-
+    
 end
